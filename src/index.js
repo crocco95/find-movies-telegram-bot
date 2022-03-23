@@ -2,9 +2,10 @@ const TelegramBot = require('node-telegram-bot-api');
 const JustWatchService = require('./services/justWatch.js')
 const ResponseController = require('./controllers/responseController.js')
 
+const fs = require('fs')
 
 // replace the value below with the Telegram token you receive from @BotFather
-const token = 'abcd';
+const token = fs.readFileSync('./src/token.txt').toString();
 
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(token, {polling: true});
